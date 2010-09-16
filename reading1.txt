@@ -1,0 +1,40 @@
+Databases correlate to a mini world in the same way that object oriented programing allows an object in code to correspond to a physical objecti n the real world, depending on the level of detail used. Difference between user-defined dynamic aspects of a database(COMPUTE_GPA) and basic data model operations(insert). Coneptual data models(user friendly) are for a less computer savvy user by represnting data the way it would be conceptualized in real life. Physical data models however, focus on how the data is actually stored and handled by the computer and is directed more towards experienced computer users.These are the two extremes and there are other data models that are in between. 
+
+There is a difference between data description and an actual database. the description is known as a schema.the terms insatnce and database state refer to the database's current set of data.the DBMS uses a schema to ensure that a database is in a valid state at all times.
+
+three major characteristics of database approach:
+1) use of a catalog to store data description (schema)
+2)insulation of programs and data (program-data and program operation independence)
+3) support multiple user views
+
+three schema arctitecture
+1. internal level describes physical storage of data
+2. conceptual level describes structure of whole database for all users.
+3. external level describes user interface.
+
+tranforming requests and returns between levels - mapping
+
+data independence
+logical - ability to change conceptual schema with out having to change user interface level
+physical - ability to change internal schema without affecting conceptual level
+
+there are different languages for each level of database and different kinds of interfaces for a database depending on how the user will be accessing the database.
+
+Database utilities
+loading-load existing files into database
+Backup- backup copy capabilities
+reorganization - reorganize database to make easier to use
+performance monitoring - used to decide whether or not to reorganize based upon database statistics
+
+originally databases were done usign  a main computer to handle all of the databse operations and manipulations and the results were sent to a terminal but eventually turned into client server architecture. 
+
+Three tier client server architechture
+client
+app server
+database server
+
+languages of databases
+data definition language (DDL)
+- defines conceptual schema
+data manipulation langauage (DML)
+- used for specifying database retrivals and updates

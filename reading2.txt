@@ -1,0 +1,11 @@
+in designing a database it is important to keep both data and functional requirment of the user in mind but seperated. from these requirements we can form conceptual schema. after that we move into logical and then physical design. it is after the conceptal phase that the design process becomes DBMS dependent in terms of how to proceed.
+
+as part of the designing prcess use of an ER diagram, which is used to represent an entitiy or entities, or things in the real world. each entity has attributes, which are the things that describe it. attributes are either simple (atomic) or composite. an attribute is considered composite if it can be broken down inito smaller pieces, for example an address can be broken down into street, city, state, etc... attributes can be single or multi valued, age versus colors for example. additionally attributes can be stored, or derived from other attributes, ie..DOB and age. when an attribute is not necessarily valued for a given instance it can be given a NULL value. attributes are considered complex if they are both multi-valued and composite. 
+
+an individual entity can be considered part of an entity type, in the same way an object is an instance of a class. a key attribute of an entity type is an attribute that will have unique values for different entities of that type. in an ER diagram key attributes ar underline.
+
+Some parts of of entities cannot be represented as attributes but rather as relationships. a relationship set R is a set of relationship instances ri where each ri associates n individual entities (e1,e2,e3,...,en).  a relationship is said to be binary if it is a relationship be tween two things, also said to be of degree 2. for degree three ternary.recursive relationships are those where there are multiple roles of the relationship that can draw from the same group of entities. relationships can also have attributes in much the same way entities do.
+
+cardinality ratios are used to help describe proportions for relationships. for example 1:N says that any entity of the first type can have any number of the second type, but any of the second type can only have one of the first.
+
+entity types that do not have nay key attributes are considered weak entity types. when a weak entity type relates to another entity type that is not weak, the relationship is considered indentifying.

@@ -1,0 +1,11 @@
+in a fairly simple design of a music database such as itunes, there would be
+
+artists(info{name, etc..})
+albums(name, number of songs, id#,price,release date)
+songs(runtime, name,other useful info,genere,popularity)
+
+and then there would be the following relationship
+(artist,album,song)
+
+
+some redundancy can be seen in the relationship, per haps redundancy could be shave off by making two smaller relationships?

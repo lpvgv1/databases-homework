@@ -1,0 +1,78 @@
+SQL 
+
+table - contains data where columns represent  generic data name/description and rows represent a specific tuple of data. SQL uses a schema to design these tables and the whole data base, where descriptors in a schema are used to describe each element of the schema. an element could be a table, a constraint, a view, a domain, or other constructs (ie.. authorization grants).
+
+schema creation:
+
+CREATE SCHEMA COMPANY AUTHORIZATION 'Jsmith';
+
+table creation:
+CREATE TABLE COMPANY.EMPLOYEE...
+-the period is used to specify which schema the table goes into.
+
+basic data types:
+NUMERIC- int, real/float.
+CHARACTER-STRING CHAR(n) (exactly length n), VARCHAR(n) (at most length n)
+BIT-STRING - BIT(n) or BIT VARYING(n), an example would be B'10101', th e B signifies the bit type.
+BOOLEAN- simply TRUE or FALSE
+DATE - has a special format of yyy-mm-dd. TIME  is another example with te format hh:mm:ss
+
+also:
+TIMESTAMP - which is a combo of DATE and TIME and may include timezone
+INTERVAL- must be year/month or day/time intervals, used to represent relative time. 
+
+
+because DATE ,TIMESTAMP, and INTERVAL are essentially formatted strings, they can be cast as strings fro comparison.
+
+also,
+
+CREATE DOMAIN allows to give a specific data type description a name ( ie.. SSN_TYPE AS CHAR(9)) so when declaring attributes of a specifiic type, the name can be given ( SSN_TYPE instead of CHAR(9))
+
+Constraints:
+
+the second main part of a schema is the definitons of constraints, which limit various things such as domain, NULLs or on individual tuples.
+
+example a schema can have attributes that are defined NOT NULL, meaning that the value of NULL is not allowed for a specific attribute. Another constraint could be a default value, specifying a value to be used if none is given.
+
+Also, CHECK can be used to put restrictions on attributes, for example giving ints a rang or a string a size range.
+
+constraints can be given names witihin a schema folllowed by the specification 
+
+queries in SQL
+
+standard structure for queries in SQL use SELECT-FROM-WHERE form. So, 
+SELECT <attribute List>
+FROM <table list>
+WHERE <condition>
+
+its that simple! you tell it which attributes you want <attribute list>, which tables it will need to get the data <table list>, and what conditions you want to filter the data <condition>. What you will gwet back is a chart with the attirbutes and all of the specfic tuples which met your conditions.
+
+an example :
+
+SELECT EMPLOYEE.Fname, EMPLOYEE.LNAME, EMOPLOYEE.Address
+FROM EMPLOYEE, DEPARTMENT
+WHERE DEPARTMENT.Dname = 'Reasarch' AND DEPARTMENT.Dnumber = EMPLOYEE.Dno;
+
+leading an attribute with the table it is found in is not necessary unless multiple tables use the same attribute name, but if the tables are declare EMPLOYEE AS E like this, then simply leading with the E will be enough.
+
+using the * operator simply denotes all attribute or tables. also the where clause is not required.
+
+other modifiers
+ALL - gets everything in attirbute
+DISTINCT - gets all values that are distinct.
+LIKE- compares entry to a substring for matching
+BETWEEN - spcifices a range a range from which to draw in WHERE
+ORDER BY- orders result based on categories, in a nested manner for more than one attribute to be ordered by.
+
+INSERT
+INSER INTO specifies the table(with attributes)
+VALUES (specific data for each tuple ot be added)
+
+DELETE
+DELETE FROM table
+WHERE (condition)
+
+UPDATE
+UPDATE (table in which values are to be changed)
+SET (specific value assignment)
+WHERE (condition for what tuples are to have values changed)

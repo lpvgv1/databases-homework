@@ -1,0 +1,65 @@
+NULL values can actually have 3 different meanings:
+1-value unkown
+2-unavailable
+3-not applicable
+
+when considering the value to imply unkown, then a third boolean value is born! true false and unkown, which effects comparisons, most important note, almost all comparisons involving unkown are unkown, exlcluding FALSE aND unkown or true or unkown.
+
+NESTED QUERIES
+
+if we consider that a query results in a pseudo table filled with entries, then we can actually query this new pseudo table for a more specific entry search.
+
+this step is done at the WHERE level using IN () or a comparison to ALL().
+IN function can also take an explicit set of values i.e.
+Pno IN (1,2,3);
+
+In general nested queries can be written ina single query
+
+EXISTS AND UNQIUE
+
+EXISTS is a comparison of sorts, in that in a query that uses exists is asking to return attributes from tuple in the tables references that exist (or don't exist) is some other table.
+
+UNIQUE is another condition function that simply say if the tuple is unique in the query
+
+JOINED TABLES
+In the FROM clause a user can specify a joining of tables. This JOIN ...ON function joins two tables based on a certain shared attribute, resulting in a table of all of the tuples that have values for both tables and have the same value in a specific atrribute of each table.
+
+a NATRUAL JOIN joins two tables by matching all attributes that share the same name. 
+
+these are both considered inner join in that tuples returned are are represented in both tables
+
+OUTER Join in which all tuples from one ofthe tables will be returned or a FULL JOIN in which all tuples from either table is returned.
+
+when tuples are returned without being present in the other table, the tuple is padded with NULLs
+
+AGGREGATE FUNCTIONS
+Aggregate functions perform an algebraic operation on specific values of tuples.
+
+examples:
+COUNT, SUM, MAX, MIN, AVG..... SUM(salary) from employee.
+
+GROUPING
+when performing aggregate functions, it is sometimes useful to divide the data you will perform the function on into groups for more useful information, so instead of counting all employee's you ask for the count of all employee's, grouped by project name and you will get the number of employee's working on each project.
+
+you can further specify by using the HAVING function where you specify conditions on which you return. so can tell the database you only want to see how many employees work on a single project if HAVING COUNT(*) >2, which means having more than two employees.
+
+MORE COSTRAINTS
+designer can use ASSERTIONS to create more specific constraints that constrain whole sets of tuples instead of constraining a single attribute. while standard CHECKs are more easily implement and efficient, ASSERTIONS allow for more specific restrictions
+
+TRIIGGERS
+TRIGGERs are used to create an action should certain conditions be met, typically informing a user of major changes in the database, or warning of violations of the database.
+
+VIEWS
+simply put, a VIEW is a table that is derived from other , base, tables. a view is simpyl created by using a query ( which makes sense since a query essentially returns a pseudo table) CREATE VIEW  <name> query
+
+when implementing views, there are two methods
+
+1 dirrectly modifying a query of a view so that it is querying the pseudo table that forms the view.
+
+2 view materialization, which keeps a view as persistent, essentially makign it a new table. this requires that the view be updated when the base tables change.
+
+SCHEMA CHANGES
+
+drop - drops specified object in schema
+
+ALTER TABLE can use add column, drop colum, drop (Schema)  constraint, or alter column (to change constraint or other specifications for this attribute)

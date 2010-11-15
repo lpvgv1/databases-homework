@@ -1,0 +1,56 @@
+chp 6
+
+6.1
+
+(sigma)  is the select operation used in the following format
+(sigma)_<selection condition> (relation)
+
+returns all tuples meetingthe conditions
+conditions can involve comparisons such as =, < , > , != and can make use of AND and OR operators.
+
+(Pi) operator returns all of the specified columns of a given relation
+
+used in the following format:
+
+(Pi)_<attribute list> (relation)
+
+the corresponds to the select command of sql, but only returns distinct values, and cannot show duplicates.
+
+renaming can be done through direct assignment
+goo(<new list of attribute names (optional)>) <- (sqigma)_dno=5 (EMPLOYEE)
+
+or through (rho) operator used in one of three ways:
+(rho)_(b1,b2,b3,...)(relation) or (rho)_S (relation) on (rho)_(b1,b2,b3,...) (relation)
+
+
+6.2
+
+relational algebras can also accept union intersect and minus operators from set theory, which are pretty intuitive.
+
+(relation1) union (relation2) returns all tuples from either relation1 or relation2
+(relation1) intersect (relation2) returns all tuples in both relation 1 and relation2
+and relation1 minus relation2 returns all tuples in relation1 but not in relation2
+
+cross product or cross join
+simply creates a new relation withh all attributes from the two relations being crossed
+
+ie...   R(a1,a2,a3,..)X S(b1,b2,b3,...)= !(a1,a2,a3,...,b1,b2,b3,...)
+
+6.3
+
+join operation signfied with a bowtie symbol is used liek a cross product on relations that are unionable, and then a sigma operation is perfromed on that product
+
+ie
+relation1(a1,a2,a3,...) (join)_a1=b1 relation2(b1,b2,b3,...)
+
+joins can be done on the =, < , > , ! and similar comparison operators.
+
+an equijoin is specifically only using the = comparison and a natural join is an equijoin between two relations where the two relations share an attribute name
+
+now we see that the set of relational algebra operations {(sigma), (Pi), union, (rho), -, X} can be called complete because any operation can be expressed as a composite of the other operations.
+
+division operator is not part of this set but is a part of relational algebras.
+
+the division operator finds all of the values that are members of tuples that also contain the specified values in other attributes.
+
+a query tree is a graphical (tree) representation of a nested relational algebra operation.
